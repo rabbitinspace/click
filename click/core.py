@@ -326,9 +326,9 @@ class Context(object):
                and parent.auto_envvar_prefix is not None and \
                self.info_name is not None:
                 auto_envvar_prefix = '%s_%s' % (parent.auto_envvar_prefix,
-                                           self.info_name.upper())
+                                           self.info_name.upper().replace('-', '_'))
         else:
-            auto_envvar_prefix = auto_envvar_prefix.upper()
+            auto_envvar_prefix = auto_envvar_prefix.upper().replace('-', '_')
         self.auto_envvar_prefix = auto_envvar_prefix
 
         if color is None and parent is not None:
